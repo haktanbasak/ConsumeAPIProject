@@ -58,32 +58,32 @@ namespace HotelProject.WebUI.Controllers
             return View();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> UpdateTestimonial(int id)
-        {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"http://localhost:5287/api/Testimonial/{id}");
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateTestimonialViewModel>(jsonData);
-                return View(values);
-            }
-            return View();
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> UpdateTestimonial(int id)
+        //{
+        //    var client = _httpClientFactory.CreateClient();
+        //    var responseMessage = await client.GetAsync($"http://localhost:5287/api/Testimonial/{id}");
+        //    if (responseMessage.IsSuccessStatusCode)
+        //    {
+        //        var jsonData = await responseMessage.Content.ReadAsStringAsync();
+        //        var values = JsonConvert.DeserializeObject<UpdateTestimonialViewModel>(jsonData);
+        //        return View(values);
+        //    }
+        //    return View();
+        //}
 
-        [HttpPost]
-        public async Task<IActionResult> UpdateTestimonial(UpdateTestimonialViewModel model)
-        {
-            var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(model);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("http://localhost:5287/api/Testimonial/", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index");
-            }
-            return View();
-        }
+        //[HttpPost]
+        //public async Task<IActionResult> UpdateTestimonial(UpdateTestimonialViewModel model)
+        //{
+        //    var client = _httpClientFactory.CreateClient();
+        //    var jsonData = JsonConvert.SerializeObject(model);
+        //    StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+        //    var responseMessage = await client.PutAsync("http://localhost:5287/api/Testimonial/", stringContent);
+        //    if (responseMessage.IsSuccessStatusCode)
+        //    {
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View();
+        //}
     }
 }
