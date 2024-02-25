@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -14,23 +13,11 @@
 
         @await Component.InvokeAsync("_NavbarPartial")
 
-        @await Component.InvokeAsync("_SliderPartial")
+        @await Component.InvokeAsync("_ContactCoverPartial")
 
-        @*@await Component.InvokeAsync("_ReservationPartial")*@
+        @await Html.PartialAsync("/Views/Contact/SendMessage.cshtml")
 
-        @await Component.InvokeAsync("_AboutPartial")
-
-        @await Component.InvokeAsync("_RoomPartial")
-
-        @await Component.InvokeAsync("_TrailerPartial")
-
-        @await Component.InvokeAsync("_ServicePartial")
-
-        @await Component.InvokeAsync("_TestimonialPartial")
-
-        @await Component.InvokeAsync("_TeamPartial")
-
-        @await Html.PartialAsync("_SubscribePartial")
+        @await Html.PartialAsync("/Views/Default/_SubscribePartial.cshtml")
 
         @await Component.InvokeAsync("_FooterPartial")
 
